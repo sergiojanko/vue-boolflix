@@ -1,7 +1,12 @@
 <template>
   <div>
     <ul>
-      <li></li>
+      <li>
+        {{movie.title}}
+        {{movie.original_title}}
+        {{movie.original_language}}
+        {{movie.vote_average}}
+      </li>
     </ul>
   </div>
 </template>
@@ -9,7 +14,10 @@
 <script>
 export default {
 name: "MovieCard",
-props: ["movie"]
+props: ["movie"],
+// created(){
+//   console.log(this.movie)
+// }
 }
 </script>
 

@@ -5,20 +5,20 @@
         <Search @movie="getMovies" />
         <span @movie=movie></span>
       </header>
-      <MovieCard/>
+      <MovieContainer :movies="movies" :series="series"/>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import Search from './components/Search.vue'
-import MovieCard from './components/MovieCard.vue'
+import MovieContainer from './components/MovieContainer.vue'
 
 export default {
   name: 'App',
   components: {
     Search,
-    MovieCard
+    MovieContainer,
   },
   data(){
     return {
@@ -31,12 +31,14 @@ export default {
   },
   methods: {
     getMovies(movie){
+      if (!movie) this.movies= [];
       this.movie = movie;
       this.getData("movies");
       this.getData("tv");
-    
-    console.log(this.series);
-    console.log(this.movies);
+
+        console.log(this.series);
+        console.log(this.movies);
+
   },
 
   getData(entity){
